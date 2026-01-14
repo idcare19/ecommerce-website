@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOREVER - Collections</title>
+    <link rel="stylesheet" href="header.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Base Styling & Fonts (Ensure these are present) */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- 1. Filter Sidebar Styling --- */
+        .filters-sidebar {
+            padding: 0;
+            /* Removing padding/border to match the clean, white sidebar look */
+        }
+
+        .filters-heading {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .filter-group {
+            padding-top: 15px;
+            /* Spacing between filter boxes */
+            padding-bottom: 15px;
+        }
+
+        .filter-group-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .form-check-label {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .form-check-input:checked {
+            background-color: #000;
+            border-color: #000;
+        }
+
+
+        /* --- 2. Collection Controls & Sort Bar --- */
+        .collection-controls {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+            margin-bottom: 30px !important;
+        }
+
+        .collection-title-header {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+        }
+
+        .collection-line {
+            display: inline-block;
+            width: 30px;
+            height: 1px;
+            background-color: #333;
+            margin-left: 10px;
+            position: relative;
+            top: 1px;
+        }
+
+        .sort-label {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .sort-select {
+            font-size: 13px !important;
+            height: 30px;
+            padding: 2px 10px;
+            border-radius: 0;
+            border-color: #ccc;
+            cursor: pointer;
+        }
+
+        /* --- 3. Product Grid & Cards --- */
+        .product-image-container {
+            background-color: #f8f8f8;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .product-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 2px;
+        }
+
+        .product-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustment for 4-column layout in the 9-column space */
+        @media (min-width: 992px) {
+            .col-lg-9 .row-cols-lg-4>* {
+                flex: 0 0 auto;
+                width: 25%;
+                /* 4 columns on large screens */
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .col-lg-9 .row-cols-md-3>* {
+                width: 33.333333%;
+                /* 3 columns on medium screens */
+            }
+        }
+
+        /* --- Policy Section Styling (New) --- */
+        .policy-section .policy-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .policy-section .policy-description {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .policy-section .policy-icon svg {
+            color: #000;
+        }
+
+        /* --- Footer & Newsletter Styling (New) --- */
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+
+        .subscribe-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .lorem-text {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .subscribe-input {
+            max-width: 350px;
+            border-radius: 0;
+            border: 1px solid #ccc;
+            padding: 15px 20px;
+            height: auto;
+            /* Ensure input height is proper */
+        }
+
+        .subscribe-btn {
+            background-color: #000;
+            color: #fff;
+            border-radius: 0;
+            padding: 15px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .footer-logo {
+            font-size: 26px;
+        }
+
+        .footer-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .footer-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .footer-list li {
+            margin-bottom: 8px;
+        }
+
+        .footer-link,
+        .footer-list li {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-link:hover {
+            color: #000;
+        }
+
+        .copyright {
+            border-top: 1px solid #e9ecef;
+            background-color: #f1f1f1 !important;
+        }
+
+        .copyright-text {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <nav class="navbar navbar-expand-lg container-fluid py-3">
+            <div class="container d-flex justify-content-between align-items-center">
+
+                <a class="navbar-brand logo-text" href="#"><img src="im/img01.png" alt=""></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav mx-auto nav-links-custom">
+                        <li class="nav-item">
+                            <a class="nav-link active-link" aria-current="page" href="index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="collection.html">COLLECTION</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center right-nav-section">
+                    <a href="admin.html" class="nav-link me-4 admin-portal-link d-none d-md-block"><button
+                            class="btn btn-sm btn-outline-dark">Admin Portal</button></a>
+                    <a href="collection.html" class="nav-link me-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.654 3.653a1 1 0 0 0 1.414-1.414l-3.654-3.653zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg></a>
+                    <a href="#" class="nav-link me-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8a.5.5 0 0 0-.5-.5H2.5a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+                            <path
+                                d="M10.87 13.9a5.5 5.5 0 0 0-9.74 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-4.63z" />
+                        </svg></a>
+                    <div class="cart-icon-container position-relative">
+                        <a href="cart.html" class="nav-link"><img src="im/img04.png" width="20" height="20"
+                                fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1z" />
+                                <path
+                                    d="M6.5 4V3.5a1.5 1.5 0 1 1 3 0V4h.5a4.5 4.5 0 0 0 4.5-4.5V1H1V.5A.5.5 0 0 0 .5 0h-1a.5.5 0 0 0 .5.5V1h15V.5a.5.5 0 0 0-.5-.5H1zM1 15a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5H1v10z" />
+                            </svg></a>
+                        <span
+                            class="badge rounded-pill bg-dark position-absolute top-0 start-100 translate-middle cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="filters-sidebar p-3 border-0">
+                    <h4 class="filters-heading">FILTERS</h4>
+
+                    <div class="filter-group mb-4 pb-3 border-bottom">
+                        <h5 class="filter-group-title">CATEGORIES</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="men" id="categoryMen"
+                                onchange="applyFilters()">
+                            <label class="form-check-label" for="categoryMen">Men</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="women" id="categoryWomen"
+                                onchange="applyFilters()">
+                            <label class="form-check-label" for="categoryWomen">Women</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="kid" id="categoryKids"
+                                onchange="applyFilters()">
+                            <label class="form-check-label" for="categoryKids">Kids</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group mb-4">
+                        <h5 class="filter-group-title">TYPE</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="topwear" id="typeTopwear"
+                                onchange="applyFilters()">
+                            <label class="form-check-label" for="typeTopwear">Topwear</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="bottomwear" id="typeBottomwear"
+                                onchange="applyFilters()">
+                            <label class="form-check-label" for="typeBottomwear">Bottomwear</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="winterwear" id="typeWinterwear"
+                                onchange="applyFilters()">
+                            <label class="form-check-label" for="typeWinterwear">Winterwear</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="collection-controls">
+                    <h3 class="collection-title-header mb-3">ALL COLLECTIONS <span class="collection-line"></span></h3>
+                    
+                    <div class="d-flex flex-column flex-md-row justify-content-end align-items-md-center mb-4">
+                        
+                        <div class="input-group me-md-3 mb-3 mb-md-0" id="search-bar-container" style="max-width: 350px; display: none;">
+                            <input type="text" id="search-input" class="form-control"
+                                placeholder="Search products by title or description..." onkeyup="applyFilters()">
+                            <button class="btn btn-outline-secondary" type="button" onclick="clearSearch()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="d-flex align-items-center flex-shrink-0">
+                            <button class="btn btn-sm btn-outline-dark me-3" type="button" id="toggle-search-btn" onclick="toggleSearchBar()">
+                                Show Search Bar
+                            </button>
+
+                            <span class="me-2 sort-label">Sort by:</span>
+                            <select class="form-select w-auto sort-select" onchange="sortProducts(this.value)">
+                                <option value="relevance" selected>Relevance</option>
+                                <option value="low-to-high">Price: Low to High</option>
+                                <option value="high-to-low">Price: High to Low</option>
+                                <option value="newest">Newest Arrivals</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4" id="product-list-container">
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="container policy-section py-5">
+        <div class="row text-center">
+
+            <div class="col-md-4 mb-4">
+                <div class="policy-item">
+                    <div class="policy-icon mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z" />
+                        </svg>
+                    </div>
+                    <h5 class="policy-title">Easy Exchange Policy</h5>
+                    <p class="policy-description">We offer hassle free exchange policy</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="policy-item">
+                    <div class="policy-icon mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.919.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                            <path
+                                d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                        </svg>
+                    </div>
+                    <h5 class="policy-title">7 Days Return Policy</h5>
+                    <p class="policy-description">We provide 7 days free return policy</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="policy-item">
+                    <div class="policy-icon mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-headset" viewBox="0 0 16 16">
+                            <path
+                                d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 1 1 0-2H11.5a1.5 1.5 0 0 0 1.5-1.5V7h-1a1 1 0 0 1-1-1V5a3 3 0 0 1 3-3z" />
+                        </svg>
+                    </div>
+                    <h5 class="policy-title">Best customer support</h5>
+                    <p class="policy-description">We provide 24/7 customer support</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer class="bg-light pt-5">
+        <div class="container text-center py-5">
+            <h3 class="subscribe-title">Subscribe now & get 20% off</h3>
+            <p class="lorem-text mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="d-flex justify-content-center mb-5">
+                <input type="email" class="form-control subscribe-input" placeholder="Enter your email" required>
+                <button type="submit" class="btn subscribe-btn">SUBSCRIBE</button>
+            </form>
+        </div>
+
+        <div class="container footer-links pb-5">
+            <div class="row">
+                <div class="col-md-5 mb-4">
+                    <a class="navbar-brand logo-text footer-logo" href="#"><img src="im/img01.png" alt=""></a>
+                    <p class="footer-description mt-3">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-heading">COMPANY</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#" class="footer-link">Home</a></li>
+                        <li><a href="#" class="footer-link">About us</a></li>
+                        <li><a href="#" class="footer-link">Delivery</a></li>
+                        <li><a href="#" class="footer-link">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-heading">GET IN TOUCH</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li>+1-000-000-0000</li>
+                        <li>greatstockdev@gmail.com</li>
+                        <li>Instagram</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid copyright py-3 text-center">
+            <p class="mb-0 copyright-text">Copyright 2024 @ greatstock.dev - All Right Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // --- CORE 14 PRODUCT DATA (p08-p21) - GLOBAL SCOPE ---
+        const CORE_PRODUCTS = [
+            // Added placeholder sizes and a basic description for consistency
+            { id: 'p08', title: 'Kid Tapered Slim Fit Trouser', price: 38, category: 'kid', type: 'trouser', imgSrc: 'img08.png', relevance: 10, description: 'Comfortable, light green trouser with a relaxed, tapered fit.' },
+            { id: 'p09', title: 'Men Round Neck Pure Cotton T-shirt', price: 64, category: 'men', type: 't-shirt', imgSrc: 'img09.png', relevance: 8, description: 'High-quality pure cotton t-shirt with a classic round neck.' },
+            { id: 'p10', title: 'Boy Round Neck Pure Cotton T-shirt', price: 60, category: 'kid', type: 'shirt', imgSrc: 'img10.png', relevance: 9, description: 'Classic boy\'s shirt in soft cotton.' },
+            { id: 'p11', title: 'Women Zip-Front Relaxed Fit Jacket', price: 74, category: 'women', type: 'jacket', imgSrc: 'img11.png', relevance: 7, description: 'Stylish, relaxed fit zip-front jacket, ideal for light layering.' },
+            { id: 'p12', title: 'Men Tapered Fit Flat-Front Trousers', price: 58, category: 'men', type: 'trouser', imgSrc: 'img12.png', relevance: 6, description: 'Sharp flat-front trousers with a modern tapered fit.' },
+            { id: 'p13', title: 'Girls Round Neck Cotton Top', price: 56, category: 'kid', type: 'top', imgSrc: 'img13.png', relevance: 5, description: 'Simple and comfortable round neck cotton top for girls.' },
+            { id: 'p14', title: 'Women Zip-Front Relaxed Fit Jacket', price: 68, category: 'women', type: 'jacket', imgSrc: 'img14.png', relevance: 4, description: 'A versatile, casual zip-up jacket for women.' },
+            { id: 'p15', title: 'Kid Tapered Slim Fit Trouser', price: 40, category: 'kid', type: 'trouser', imgSrc: 'img15.png', relevance: 3, description: 'Tapered slim fit trouser for kids with adjustable waist.' },
+            { id: 'p16', title: 'Men Printed Plain Cotton Shirt', price: 52, category: 'men', type: 'shirt', imgSrc: 'img16.png', relevance: 2, description: 'Lightweight cotton shirt with a subtle print pattern.' },
+            { id: 'p17', title: 'Women Zip-Front Relaxed Fit Jacket', price: 78, category: 'women', type: 'jacket', imgSrc: 'img17.png', relevance: 1, description: 'A stylish, relaxed fit jacket with a functional zip-front closure.' },
+            { id: 'p18', title: 'Men Zip-Front Suede Jacket', price: 95, category: 'men', type: 'jacket', imgSrc: 'img18.png', relevance: 15, description: 'Premium suede-look jacket with zip fastening.' },
+            { id: 'p19', title: 'Men Denim Jacket', price: 85, category: 'men', type: 'jacket', imgSrc: 'img19.png', relevance: 12, description: 'Classic denim jacket in a dark wash.' },
+            { id: 'p20', title: 'Women Stand-Collar Windcheater', price: 70, category: 'women', type: 'jacket', imgSrc: 'img20.png', relevance: 11, description: 'Lightweight windbreaker with a stand collar.' },
+            { id: 'p21', title: 'Men Quilted Puffer Jacket', price: 110, category: 'men', type: 'jacket', imgSrc: 'img21.png', relevance: 13, description: 'Heavy quilted puffer jacket for maximum warmth.' }
+        ];
+
+        // --- GENERATE 50 PRODUCTS BY REPEATING THE CORE 14 - GLOBAL SCOPE ---
+        let PRODUCTS = [];
+        for (let i = 0; i < 50; i++) {
+            const coreIndex = i % CORE_PRODUCTS.length;
+            const baseProduct = CORE_PRODUCTS[coreIndex];
+            const uniqueId = 'p' + (i + 8).toString().padStart(2, '0');
+
+            PRODUCTS.push({
+                ...baseProduct, // Copy all properties (title, price, category, etc.)
+                id: uniqueId, // Set the unique ID
+                title: baseProduct.title + (i >= CORE_PRODUCTS.length ? ` (Variant ${Math.floor(i / CORE_PRODUCTS.length) + 1})` : ''),
+                price: baseProduct.price + Math.floor(i / 10), // Slightly increase price
+                relevance: 50 - i
+            });
+        }
+
+        // --- 1. CLICK HANDLER FOR PRODUCT NAVIGATION (GLOBAL FUNCTION) ---
+        function handleProductClick(productId) {
+            // Redirect the user to the product detail page, passing the ID
+            window.location.href = `product-detail.html?id=${productId}`;
+        }
+        
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const productContainer = document.getElementById('product-list-container');
+            let currentSort = 'relevance';
+
+            // 2. --- CORE RENDERING FUNCTION ---
+            function renderProducts(productsArray) {
+                if (!productContainer) return;
+
+                productContainer.innerHTML = '';
+
+                if (productsArray.length === 0) {
+                    productContainer.innerHTML = '<div class="col-12"><p class="text-center text-muted mt-5">No products found matching your filters.</p></div>';
+                    return;
+                }
+
+                productsArray.forEach(product => {
+                    const imageUrl = `im/${product.imgSrc}`;
+
+                    const productCardHtml = `
+                        <div class="col">
+                            <div class="product-card" data-product-id="${product.id}" style="cursor: pointer;">
+                                <div class="product-image-container">
+                                    <img 
+                                        src="${imageUrl}" 
+                                        class="img-fluid product-img" 
+                                        alt="${product.title}"
+                                    >
+                                </div>
+                                <div class="product-details mt-2">
+                                    <p class="product-title">${product.title}</p>
+                                    <p class="product-price">$${product.price.toFixed(2)}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    // Use DOM manipulation to attach the event listener directly
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = productCardHtml.trim();
+                    const productCol = tempDiv.firstChild;
+
+                    const card = productCol.querySelector('.product-card');
+                    if (card) {
+                        card.addEventListener('click', () => {
+                            handleProductClick(product.id);
+                        });
+                    }
+
+                    productContainer.appendChild(productCol);
+                });
+            }
+
+
+            // 3. --- SORTING LOGIC (GLOBAL) ---
+            window.sortProducts = function (sortBy) {
+                currentSort = sortBy;
+                applyFilters();
+            }
+
+           // --- NEW: Toggle Search Bar Function (GLOBAL) ---
+            window.toggleSearchBar = function() {
+                const searchContainer = document.getElementById('search-bar-container');
+                const toggleButton = document.getElementById('toggle-search-btn');
+
+                if (searchContainer.style.display === 'flex') {
+                    // Show the search bar
+                    searchContainer.style.display = 'none'; // Use flex to match input-group display
+                    toggleButton.textContent = 'Show Search Bar';
+                } else {
+                    // Hide the search bar, clear search term, and re-apply filters
+                    searchContainer.style.display = 'flex';
+                    toggleButton.textContent = 'Hide Search Bar';
+                    
+                    // Clear search term and re-apply filters to ensure all products show
+                    document.getElementById('search-input').value = '';
+                    applyFilters();
+                }
+            }
+
+            // --- Clear Search Function (GLOBAL) ---
+            window.clearSearch = function () {
+                const searchInput = document.getElementById('search-input');
+                searchInput.value = ''; // Clear the input field
+                applyFilters(); // Re-apply filters to show all products
+                searchInput.focus(); // Optional: put focus back for quick entry
+            }
+
+            // 4. --- FILTERING & MASTER RENDERING LOGIC (GLOBAL) ---
+            window.applyFilters = function () {
+                let filteredProducts = [...PRODUCTS];
+
+                // --- Apply Search Filter ---
+                const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+                if (searchTerm.length > 0) {
+                    filteredProducts = filteredProducts.filter(product => 
+                        // Check if the search term is in the title or the description
+                        product.title.toLowerCase().includes(searchTerm) || 
+                        (product.description && product.description.toLowerCase().includes(searchTerm))
+                    );
+                }
+                // ---------------------------------
+                
+                const selectedCategories = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"][id^="category"]:checked'))
+                    .map(checkbox => checkbox.value);
+
+                const selectedTypes = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"][id^="type"]:checked'))
+                    .map(checkbox => checkbox.value);
+
+                // Filter by categories
+                if (selectedCategories.length > 0) {
+                    filteredProducts = filteredProducts.filter(product => selectedCategories.includes(product.category));
+                }
+
+                // Filter by types 
+                if (selectedTypes.length > 0) {
+                    const mappedTypes = selectedTypes.flatMap(typeFilter => {
+                        // Map generic filter terms to specific product types
+                        if (typeFilter === 'topwear') return ['t-shirt', 'shirt', 'top'];
+                        if (typeFilter === 'bottomwear') return ['trouser'];
+                        if (typeFilter === 'winterwear') return ['jacket'];
+                        return [];
+                    });
+                    filteredProducts = filteredProducts.filter(product => mappedTypes.some(t => product.type.toLowerCase() === t));
+                }
+
+                // Apply Sorting
+                if (currentSort === 'low-to-high') {
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                } else if (currentSort === 'high-to-low') {
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                } else if (currentSort === 'relevance') {
+                    filteredProducts.sort((a, b) => b.relevance - a.relevance);
+                }
+
+                renderProducts(filteredProducts);
+            }
+
+            // --- INITIALIZATION ---
+            window.applyFilters();
+        });
+    </script>
+<script src="script/active.js"></script>
+<script src="script/products.js"></script>
+<script src="script/c.js"></script>
+<script src="script/cart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

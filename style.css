@@ -1,0 +1,601 @@
+/* Base Styling & Fonts */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333; /* Dark gray for general text */
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 1. Header & Navigation --- */
+
+/* Logo Styling */
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.logo-dot {
+    color: #e5005b; /* A magenta/pink color for the dot */
+    font-size: 30px;
+    line-height: 0;
+    position: relative;
+    top: -2px;
+}
+
+/* Nav Links Styling */
+.nav-links-custom .nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    padding-left: 15px;
+    padding-right: 15px;
+    letter-spacing: 1px;
+}
+
+.nav-links-custom .active-link {
+    border-bottom: 2px solid #000;
+    padding-bottom: 4px; /* Adjust as needed */
+    color: #000;
+}
+
+/* Admin Portal Link */
+.admin-portal-link {
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+}
+
+/* Cart Icon Count */
+.cart-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* --- 2. Hero Section --- */
+
+.hero-section {
+    border: 1px solid #ccc; /* Border around the main banner area */
+    max-width: 1200px; /* Optional: Adjust max width */
+}
+
+/* Left Content Area */
+.hero-left {
+    background-color: #fff;
+    min-height: 500px; /* Ensures height matches the image side */
+}
+
+.text-content {
+    max-width: 300px; /* Keeps the text centered and grouped */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bestsellers-text {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #666;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/* Line above 'OUR BESTSELLERS' */
+.bestsellers-text::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: -60px; /* Adjust position */
+}
+
+.latest-arrivals-text {
+    font-family: 'Playfair Display', serif; /* Serif font for main title */
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.shop-now-link {
+    font-size: 14px;
+    letter-spacing: 3px;
+    display: inline-flex;
+    align-items: center;
+    color: #000;
+    font-weight: 500;
+}
+
+/* Line under 'SHOP NOW' */
+.shop-now-link .line {
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    background-color: #333;
+    margin-left: 10px;
+}
+
+
+/* Right Image Area */
+.hero-right {
+    /* Retain light pink background color */
+    background-color: #f7e0e7; 
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 100%;
+    min-height: 500px; 
+    /* Placeholder image URL */
+    background-image: url('im/img07.png'); 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center;
+    
+    /* Image Cropping Fix */
+    background-position: left center; 
+}
+
+/* --- 3. Latest Collections Section --- */
+
+.latest-collections-section {
+    max-width: 1000px; /* Center the content */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #000;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Horizontal lines around the title */
+.section-title::before,
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 70px; /* Length of the line */
+    height: 1px;
+    background-color: #333;
+}
+
+.section-title::before {
+    left: -80px; /* Position to the left */
+}
+
+.section-title::after {
+    right: -80px; /* Position to the right */
+}
+
+.lorem-text {
+    font-size: 14px;
+    color: #666;
+    max-width: 500px;
+    margin: 0 auto;
+}
+/* --- 4. Product Grid Styling (Hover Effects Removed) --- */
+
+.product-card {
+    text-align: left;
+    /* Removed: transition: transform 0.2s; */ 
+}
+
+/* Removed: .product-card:hover styles */
+
+.product-image-container {
+    background-color: #f8f8f8;
+    overflow: hidden;
+    position: relative;
+    padding: 15px; /* Add some padding around the image inside the container */
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Removed: transition: transform 0.3s ease-in-out; */ 
+}
+
+/* Removed: .product-card:hover .product-image-container img styles */
+
+.product-details {
+    padding-top: 10px;
+    line-height: 1.2;
+}
+
+.product-title-link:hover .product-title {
+    color: #000;
+}
+
+.product-title {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 2px;
+    transition: color 0.2s ease;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0;
+}
+
+/* Add to Cart Button Styling (Visible, not hidden on hover) */
+.add-to-cart-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1; /* Always visible */
+    padding: 8px 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #555;
+}
+
+/* Policy Section Styling */
+.policy-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.policy-item {
+    padding: 20px;
+}
+
+.policy-icon svg {
+    color: #e5005b; /* Use your brand color for icons */
+    font-size: 3rem; /* Larger icon size */
+}
+
+.policy-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.policy-description {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* --- Footer & Subscription --- */
+.subscribe-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.subscribe-input {
+    max-width: 300px;
+    border-radius: 0;
+    border-right: none;
+    height: 45px;
+}
+
+.subscribe-btn {
+    background-color: #000;
+    color: #fff;
+    border-radius: 0;
+    padding: 0 25px;
+    height: 45px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: background-color 0.2s;
+}
+
+.subscribe-btn:hover {
+    background-color: #555;
+}
+
+.footer-logo {
+    font-size: 28px;
+}
+
+.footer-heading {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.footer-description {
+    font-size: 12px;
+    color: #666;
+    max-width: 350px;
+}
+
+.footer-list li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.footer-list .footer-link:hover {
+    color: #000;
+}
+
+.copyright {
+    background-color: #f8f9fa; /* Light gray bar */
+    border-top: 1px solid #eee;
+}
+
+.copyright-text {
+    font-size: 12px;
+    color: #666;
+}
+/* --- Collections Page Section Titles & Text --- */
+
+.latest-collections-section {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* (The main .section-title styles are above) */
+
+/* --- Filter Sidebar Styling (Collection Page) --- */
+.filters-sidebar {
+    border: 1px solid #eee;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.filters-heading {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-group-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.form-check-input:checked {
+    background-color: #000;
+    border-color: #000;
+}
+.form-check-input:focus {
+    box-shadow: none;
+}
+.form-check-label {
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------- */
+/* --- RESPONSIVENESS MEDIA QUERIES --- */
+/* ------------------------------------------- */
+
+/* Responsive adjustments for product grid (LG and up) */
+@media (min-width: 1200px) { 
+    .product-grid .row-cols-lg-5 > * {
+        flex: 0 0 auto;
+        width: 20%; /* 5 columns */
+    }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .product-grid .row-cols-md-3 > * {
+        flex: 0 0 auto;
+        width: 33.333333%; /* 3 columns */
+    }
+    
+    /* Collections page with sidebar */
+    #collections-page .col-lg-9 .row-cols-lg-4 > * {
+        flex: 0 0 auto;
+        width: 33.333333%; 
+    }
+}
+
+
+/* Adjustments for devices smaller than 992px (Tablet) */
+@media (max-width: 991.98px) {
+    /* Hide Admin Portal Link on smaller screens */
+    .admin-portal-link {
+        display: none !important;
+    }
+    
+    /* Collections page: ensure grid is 3-column when sidebar is gone */
+    #collections-page .col-lg-9 {
+        width: 100%;
+    }
+    
+    #collections-page .col-lg-9 .row-cols-lg-4 > * {
+        width: 33.333333%; /* Maintain 3 columns if screen allows */
+    }
+
+    .product-grid .row-cols-md-3 > * {
+        width: 50%; /* 2 columns on most tablets */
+    }
+}
+
+/* Adjustments for devices smaller than 768px (Mobile) */
+@media (max-width: 767.98px) {
+    /* --- Hero Section Adjustments --- */
+    .hero-section {
+        border: none; /* Remove border on mobile */
+    }
+
+    .hero-left {
+        min-height: auto; 
+        padding: 40px 15px !important; 
+    }
+
+    .hero-right {
+        min-height: 300px; /* Smaller min height for image */
+    }
+    
+    .hero-image-container {
+        min-height: 300px; 
+    }
+
+    /* Center text content */
+    .text-content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+        text-align: center; /* Center the text inside */
+    }
+
+    .bestsellers-text {
+        text-align: center;
+    }
+
+    .bestsellers-text::before {
+        content: none; /* Remove the horizontal line next to 'OUR BESTSELLERS' */
+    }
+
+    .latest-arrivals-text {
+        font-size: 38px; /* Smaller font size for the main title */
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .shop-now-link {
+        justify-content: center; /* Center the link and its line */
+        margin-top: 15px;
+    }
+    
+    /* --- Section Title Adjustments (Latest Collections / Best Sellers) --- */
+    .section-title::before,
+    .section-title::after {
+        content: none; /* Remove horizontal lines on small screens */
+    }
+    
+    .section-title {
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+    }
+
+    .lorem-text {
+        padding: 0 15px;
+    }
+
+    /* --- Product Grid --- */
+    .product-grid .row-cols-md-3 > * {
+        width: 50%; /* Default to 2 columns on mobile/small tablet */
+    }
+    
+    /* --- Footer/Subscription Adjustments --- */
+    /* Stack the subscribe form elements */
+    .footer form {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        margin: 0 auto 30px auto;
+        padding: 0 15px;
+    }
+    
+    .subscribe-input {
+        max-width: 100%; /* Take full width */
+    }
+    
+    .subscribe-btn {
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px 25px; 
+        height: auto;
+    }
+
+    /* Footer links/text center alignment */
+    .footer-links .row > div {
+        text-align: center;
+    }
+    
+    .footer-description {
+        margin: 10px auto;
+        max-width: 90%;
+    }
+    
+    .footer-heading {
+        margin-top: 20px;
+    }
+    
+    .footer-list {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
+
+/* Adjustments for devices smaller than 576px (Extra Small Mobile) */
+@media (max-width: 575.98px) { 
+    /* Force 1 column on smallest devices if desired */
+    .product-grid .row-cols-1 > * {
+        width: 100%;
+    }
+    
+    /* If the Bootstrap classes are used: */
+    .product-grid .row-cols-2 > * {
+        width: 100%;
+    }
+
+    .product-grid .col {
+        padding: 0 10px; /* Tighten spacing */
+    }
+
+    .latest-arrivals-text {
+        font-size: 32px;
+    }
+}

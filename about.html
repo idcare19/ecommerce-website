@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="header.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        
+        /* Basic Reset and Global Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Use the font linked in HTML */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- RESTORED Header/Navigation Bar Styling --- */
+
+
+/* --- End of RESTORED Header/Navigation Bar Styling --- */
+
+/* --- Section Titles/Dividers Styling --- */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 300;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+/* Horizontal line effect for section titles */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: #333;
+    margin: 10px auto 0;
+}
+
+/* --- About Us Content Styling --- */
+.content-row {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    margin-bottom: 80px;
+}
+
+.image-column {
+    flex: 1;
+}
+
+.image-column img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* This needs to be replaced with the actual image */
+    background-color: #f0f0f0; 
+    min-height: 400px; 
+}
+
+.text-column {
+    flex: 2;
+    padding-top: 20px;
+}
+
+.text-column p {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.text-column h3 {
+    font-size: 18px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* --- Why Choose Us Grid Styling --- */
+.why-choose-us-section .section-title {
+    /* Adjusted title style for the second section */
+    font-size: 22px;
+    margin-top: 40px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+    padding-bottom: 80px;
+}
+
+.feature-item {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.feature-item h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 40px 0;
+    width: 25%; /* Shorter line similar to the image */
+    opacity: 0; /* Making it invisible as the image doesn't show a clear HR */
+}
+
+/* Basic Responsiveness */
+@media (max-width: 992px) { /* Changed from 768px for navbar collapse */
+    .nav-links-custom {
+        display: none; /* Hide main links on smaller screens if you aren't implementing a mobile menu */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-custom {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }
+
+    .nav-links-custom { /* Re-display the links if you wanted a stacked mobile menu, but for simplicity, they stay hidden */
+        display: none;
+    }
+    
+    .admin-portal-link {
+        display: none; /* Hide for mobile */
+    }
+
+    .content-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .features-grid {
+        flex-direction: column;
+    }
+
+    .feature-item {
+        margin-bottom: 20px;
+    }
+}
+/* --- Newsletter Section Styling --- */
+.newsletter-section {
+    padding: 80px 20px;
+    background-color: #fff;
+    text-align: center;
+    border-top: 1px solid #eee; /* Visual separation from the content above */
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-content h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.newsletter-content p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+    max-width: 300px; /* Control input width */
+    font-size: 14px;
+    outline: none;
+}
+
+.subscribe-form button {
+    padding: 15px 30px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscribe-form button:hover {
+    background-color: #333;
+}
+
+/* --- Footer Styling --- */
+.main-footer {
+    background-color: #fff;
+    padding-top: 50px;
+    color: #333;
+    border-top: 1px solid #eee;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    gap: 40px;
+}
+
+.footer-col {
+    /* Base style for all columns */
+}
+
+.logo-col {
+    flex: 2; /* Give the logo column more space */
+}
+
+.links-col, .contact-col {
+    flex: 1;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.logo-col p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-col a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: #000;
+}
+
+/* Copyright Bar */
+.copyright-bar {
+    text-align: center;
+    font-size: 12px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    color: #666;
+}
+
+/* Add media query adjustments for responsiveness */
+@media (max-width: 900px) {
+    .footer-grid {
+        flex-wrap: wrap;
+    }
+
+    .logo-col {
+        flex: 1 1 100%; /* Take full width on smaller screens */
+        margin-bottom: 30px;
+    }
+
+    .links-col, .contact-col {
+        flex: 1 1 45%; /* Split into two columns */
+    }
+}
+
+@media (max-width: 550px) {
+     .links-col, .contact-col {
+        flex: 1 1 100%; /* Stack all columns */
+        margin-bottom: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    
+  <header>
+    <nav class="navbar navbar-expand-lg container-fluid py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            
+            <a class="navbar-brand logo-text" href="#"><img src="im/img01.png" alt=""></a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav mx-auto nav-links-custom">
+                    <li class="nav-item">
+                        <a class="nav-link active-link" aria-current="page" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collection.html">COLLECTION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="d-flex align-items-center right-nav-section">
+                <a href="admin.html" class="nav-link me-4 admin-portal-link d-none d-md-block"><button class="btn btn-sm btn-outline-dark">Admin Portal</button></a>
+              
+                <a href="#" class="nav-link me-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.654 3.653a1 1 0 0 0 1.414-1.414l-3.654-3.653zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></a>
+              <div class="dropdown me-3 search-dropdown-custom">
+    <a href="#" class="nav-link search-icon-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.654 3.653a1 1 0 0 0 1.414-1.414l-3.654-3.653zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end search-input-container">
+        <form class="p-2 d-flex">
+            <input type="search" class="form-control" placeholder="Search products..." aria-label="Search">
+            <button class="btn btn-dark ms-2" type="submit">Go</button>
+        </form>
+    </div>
+</div>
+                <a href="#" class="nav-link me-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8a.5.5 0 0 0-.5-.5H2.5a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z"/><path d="M10.87 13.9a5.5 5.5 0 0 0-9.74 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-4.63z"/></svg></a>
+                <div class="cart-icon-container position-relative">
+                    <a href="cart.html" class="nav-link"><img src="im/img04.png" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1z"/><path d="M6.5 4V3.5a1.5 1.5 0 1 1 3 0V4h.5a4.5 4.5 0 0 0 4.5-4.5V1H1V.5A.5.5 0 0 0 .5 0h-1a.5.5 0 0 0 .5.5V1h15V.5a.5.5 0 0 0-.5-.5H1zM1 15a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5H1v10z"/></svg></a>
+                    <span class="badge rounded-pill bg-dark position-absolute top-0 start-100 translate-middle cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+    <main class="container">
+        <section class="about-us-section">
+            <h1 class="section-title">ABOUT US</h1>
+            <div class="content-row">
+                <div class="image-column">
+                    <img src="image.png" alt="Fashion and home essentials">
+                </div>
+                <div class="text-column">
+                    <p>
+                        Forever was born out of a passion for innovation and a desire to revolutionize the way people shop online. Our journey began with a simple idea: to provide a platform where customers can easily discover, explore, and purchase a wide range of products from the comfort of their homes.
+                    </p>
+                    <p>
+                        Since our inception, we've worked tirelessly to curate a diverse selection of high-quality products that cater to every taste and preference. From fashion and beauty to electronics and home essentials, we offer an extensive collection sourced from trusted brands and suppliers.
+                    </p>
+
+                    <h3>Our Mission</h3>
+                    <p>
+                        Our mission at Forever is to empower customers with choice, convenience, and confidence. We're dedicated to providing a seamless shopping experience that exceeds expectations, from browsing and ordering to delivery and beyond.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <hr class="separator">
+
+        <section class="why-choose-us-section">
+            <h2 class="section-title">WHY CHOOSE US</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>Quality Assurance:</h4>
+                    <p>We meticulously select and vet each product to ensure it meets our stringent quality standards.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Convenience:</h4>
+                    <p>With our user-friendly interface and hassle-free ordering process, shopping has never been easier.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Exceptional Customer Service:</h4>
+                    <p>Our team of dedicated professionals is here to assist you the way, ensuring your satisfaction is our top priority.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Subscribe now & get 20% off</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col logo-col">
+                <a class="navbar-brand logo-text footer-logo" href="#"><img src="im/img01.png" alt=""></a>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h4>GET IN TOUCH</h4>
+                <ul>
+                    <li>+1-000-000-0000</li>
+                    <li><a href="mailto:greatstackdev@email.com">greatstackdev@gmail.com</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright-bar">
+            Copyright 2024@ greatstack dev - All Right Reserved.
+        </div>
+    </footer>
+    <script src="script/active.js"></script>
+<script src="script/c.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

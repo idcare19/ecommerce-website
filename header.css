@@ -1,0 +1,63 @@
+/* --- 1. Header & Navigation --- */
+
+/* Logo Styling */
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.logo-dot {
+    color: #e5005b; /* A magenta/pink color for the dot */
+    font-size: 30px;
+    line-height: 0;
+    position: relative;
+    top: -2px;
+}
+
+/* Nav Links Styling */
+.nav-links-custom .nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    padding-left: 15px;
+    padding-right: 15px;
+    letter-spacing: 1px;
+}
+
+.nav-links-custom .active-link {
+    border-bottom: 2px solid #000;
+    padding-bottom: 4px; /* Adjust as needed */
+    color: #000;
+}
+
+/* Admin Portal Link */
+.admin-portal-link {
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+}
+
+/* Cart Icon Count */
+.cart-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+}
